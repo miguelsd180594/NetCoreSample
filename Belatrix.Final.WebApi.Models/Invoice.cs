@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Belatrix.Final.WebApi.Models
 {
     public class Invoice
     {
+        [Key]
         public int InvoiceId { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
@@ -14,5 +17,6 @@ namespace Belatrix.Final.WebApi.Models
         public string BillingCountry { get; set; }
         public string BillingPostalCode { get; set; }
         public decimal Total { get; set; }
+        public ICollection<InvoiceLine> invoiceLines { get; set; }
     }
 }

@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Belatrix.Final.WebApi.Models
 {
     public class Track
     {
+        [Key]
         public int TrackId { get; set; }
         public string Name { get; set; }
         public Album Album { get; set; }
@@ -14,5 +17,10 @@ namespace Belatrix.Final.WebApi.Models
         public int Bytes { get; set; }
         public decimal UnitPrice { get; set; }
         public DateTime InsertDate { get; set; }
+        public int AlbumId { get; set; }
+        public int MediaTypeId { get; set; }
+        public int GenreId { get; set; }
+        public ICollection<InvoiceLine> InvoiceLines { get; set; }
+        public ICollection<PlaylistTrack> PlaylistTracks { get; set; }
     }
 }

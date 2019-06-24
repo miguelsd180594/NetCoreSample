@@ -1,7 +1,10 @@
-﻿namespace Belatrix.Final.WebApi.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Belatrix.Final.WebApi.Models
 {
     public class InvoiceLine
     {
+        [Key]
         public int InvoiceLineId { get; set; }
         public Invoice Invoice { get; set; }
         public Track Track { get; set; }

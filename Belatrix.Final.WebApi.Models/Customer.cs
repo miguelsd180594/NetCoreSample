@@ -1,7 +1,11 @@
-﻿namespace Belatrix.Final.WebApi.Models
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace Belatrix.Final.WebApi.Models
 {
     public class Customer
     {
+        [Key]
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -15,5 +19,6 @@
         public string Fax { get; set; }
         public string Email { get; set; }
         public Employee SupportRepId { get; set; }
+        public ICollection<Invoice> Invoices { get; set; }
     }
 }
