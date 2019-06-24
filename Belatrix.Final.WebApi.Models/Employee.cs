@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Belatrix.Final.WebApi.Models
 {
     public class Employee
     {
+        public Employee()
+        {
+            Customers = new HashSet<Customer>();
+            EmployeesReportsTo = new HashSet<Employee>();
+        }
         [Key]
         public int EmployeeId { get; set; }
         public string LastName { get; set; }
@@ -21,6 +27,8 @@ namespace Belatrix.Final.WebApi.Models
         public string Phone { get; set; }
         public string Fax { get; set; }
         public string Email { get; set; }
+        public ICollection<Customer> Customers { get; set; }
+        public ICollection<Employee> EmployeesReportsTo { get; set; }
     }
 
 }

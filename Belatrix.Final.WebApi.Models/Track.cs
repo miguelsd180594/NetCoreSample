@@ -6,6 +6,11 @@ namespace Belatrix.Final.WebApi.Models
 {
     public class Track
     {
+        public Track()
+        {
+            InvoiceLines = new HashSet<InvoiceLine>();
+            PlaylistTracks = new HashSet<PlaylistTrack>();
+        }
         [Key]
         public int TrackId { get; set; }
         public string Name { get; set; }

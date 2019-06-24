@@ -5,6 +5,10 @@ namespace Belatrix.Final.WebApi.Models
 {
     public class Customer
     {
+        public Customer()
+        {
+            Invoices = new HashSet<Invoice>();
+        }
         [Key]
         public int CustomerId { get; set; }
         public string FirstName { get; set; }

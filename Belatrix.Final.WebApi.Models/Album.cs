@@ -5,6 +5,10 @@ namespace Belatrix.Final.WebApi.Models
 {
     public class Album
     {
+        public Album()
+        {
+            Tracks = new HashSet<Track>();
+        }
         [Key]
         public int AlbumId { get; set; }
         public string Title { get; set; }
