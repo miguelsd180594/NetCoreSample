@@ -10,10 +10,10 @@ namespace Belatrix.Final.WebApi.Repository.PostgreSql.Configurations
         public void Configure(EntityTypeBuilder<Track> builder)
         {
             builder.ToTable("track")
-                .HasKey(x => x.TrackId)
+                .HasKey(x => x.Id)
                 .HasName("track_id_pkey");
 
-            builder.Property(x => x.TrackId)
+            builder.Property(x => x.Id)
                 .HasColumnName("id")
                 .UseNpgsqlIdentityColumn()
                 .IsRequired();

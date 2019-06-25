@@ -10,7 +10,7 @@ namespace Belatrix.Final.WebApi.Models
             Albums = new HashSet<Album>();
         }
         [Key]
-        public int ArtistId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Album> Albums { get; set; }
     }

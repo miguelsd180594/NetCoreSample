@@ -10,7 +10,7 @@ namespace Belatrix.Final.WebApi.Models
             Tracks = new HashSet<Track>();
         }
         [Key]
-        public int MediaTypeId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Track> Tracks { get; set; }
     }

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Belatrix.Final.WebApi.Models\Belatrix.Final.WebApi.Models.csproj" />
+    <ProjectReference Include="..\Belatrix.Final.WebApi.Repository\Belatrix.Final.WebApi.Repository.csproj" />
   </ItemGroup>
 
 </Project>

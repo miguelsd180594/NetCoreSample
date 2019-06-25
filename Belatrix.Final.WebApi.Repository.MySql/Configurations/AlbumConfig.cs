@@ -12,7 +12,7 @@ namespace Belatrix.Final.WebApi.Repository.MySql.Configurations
             //    .HasKey(c => c.AlbumId)
             //    .HasName("album_id_key");
 
-            builder.Property(e => e.AlbumId)
+            builder.Property(e => e.Id)
                 .HasColumnName("album_id");
 
             builder.Property(e => e.Title)

@@ -5,7 +5,7 @@ namespace Belatrix.Final.WebApi.Models
     public class InvoiceLine
     {
         [Key]
-        public int InvoiceLineId { get; set; }
+        public int Id { get; set; }
         public Invoice Invoice { get; set; }
         public Track Track { get; set; }
         public decimal UnitPrice { get; set; }

@@ -1,11 +1,9 @@
-using Mysql = Belatrix.Final.WebApi.Repository.MySql;
-using PostgreSql = Belatrix.Final.WebApi.Repository.PostgreSql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Belatrix.Final.WebApi.Extensions;
 
 namespace Belatrix.Final.WebApi
 {
@@ -27,9 +25,8 @@ namespace Belatrix.Final.WebApi
             //services.AddDbContext<Mysql.BelatrixFinalDbContext>(options =>
             //options.UseMySql(Configuration.GetConnectionString("mysql")));
 
-            services.AddEntityFrameworkNpgsql()
-                .AddDbContext<PostgreSql.BelatrixFinalDbContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("postgresql"), x => x.MigrationsAssembly("Belatrix.Final.WebApi")))
-                .BuildServiceProvider();
+            services.AddSwashbuckle();
+            services.AddDependencies(Configuration.GetConnectionString("postgresql"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +51,13 @@ namespace Belatrix.Final.WebApi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Belatrix Final Project API v1");
             });
         }
     }

@@ -10,10 +10,10 @@ namespace Belatrix.Final.WebApi.Repository.PostgreSql.Configurations
         public void Configure(EntityTypeBuilder<Playlist> builder)
         {
             builder.ToTable("playlist")
-                .HasKey(x => x.PlaylistId)
+                .HasKey(x => x.Id)
                 .HasName("playlist_id_pkey");
 
-            builder.Property(x => x.PlaylistId)
+            builder.Property(x => x.Id)
                 .HasColumnName("id")
                 .UseNpgsqlIdentityColumn()
                 .IsRequired();

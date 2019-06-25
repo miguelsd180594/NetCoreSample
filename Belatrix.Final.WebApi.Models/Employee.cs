@@ -12,7 +12,7 @@ namespace Belatrix.Final.WebApi.Models
             InChargeOf = new HashSet<Employee>();
         }
         [Key]
-        public int EmployeeId { get; set; }
+        public int Id { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Title { get; set; }

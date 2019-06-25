@@ -10,10 +10,10 @@ namespace Belatrix.Final.WebApi.Repository.PostgreSql.Configurations
         public void Configure(EntityTypeBuilder<Invoice> builder)
         {
             builder.ToTable("invoice")
-                .HasKey(x => x.InvoiceId)
+                .HasKey(x => x.Id)
                 .HasName("invoice_id_pkey");
 
-            builder.Property(x => x.InvoiceId)
+            builder.Property(x => x.Id)
                 .HasColumnName("id")
                 .UseNpgsqlIdentityColumn()
                 .IsRequired();
