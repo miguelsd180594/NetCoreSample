@@ -8,23 +8,23 @@ namespace Belatrix.Final.WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AlbumController : ControllerBase
+    public class CustomerController : ControllerBase
     {
-        private readonly IRepository<Album> _repository;
-        public AlbumController(IRepository<Album> repository)
+        private readonly IRepository<Customer> _repository;
+        public CustomerController(IRepository<Customer> repository)
         {
             _repository = repository;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Album>>> GetAlbums()
+        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
         {
             var list = await _repository.Read();
             return Ok(list);
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Album> GetAlbum(int id)
+        public ActionResult<Customer> GetCustomer(int id)
         {
             var entity = _repository.GetById(id);
             if (entity == null) return NotFound();
@@ -32,14 +32,14 @@ namespace Belatrix.Final.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Album>> PostAlbum([FromBody]Album request)
+        public async Task<ActionResult<Customer>> PostCustomer([FromBody]Customer request)
         {
             await _repository.Create(request);
             return Ok(request.Id);
         }
 
         [HttpPut]
-        public async Task<ActionResult<bool>> PutAlbum([FromBody]Album request)
+        public async Task<ActionResult<bool>> PutCustomer([FromBody]Customer request)
         {
             var entity = _repository.GetById(request.Id);
             if (entity == null) return NotFound();
@@ -48,7 +48,7 @@ namespace Belatrix.Final.WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<bool>> DeleteAlbum(int id)
+        public async Task<ActionResult<bool>> DeleteCustomer(int id)
         {
             var entity = _repository.GetById(id);
             if (entity == null) return NotFound();

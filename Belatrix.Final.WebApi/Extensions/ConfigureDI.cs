@@ -12,6 +12,9 @@ namespace Belatrix.Final.WebApi.Extensions
     {
         public static IServiceCollection AddDependencies(this IServiceCollection services, string connectionString)
         {
+            //services.AddDbContext<Mysql.BelatrixFinalDbContext>(options =>
+            //options.UseMySql(Configuration.GetConnectionString("mysql")));
+
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<PostgreSql.BelatrixFinalDbContext>(opt => opt.UseNpgsql(connectionString, x => x.MigrationsAssembly("Belatrix.Final.WebApi")))
                 .BuildServiceProvider();

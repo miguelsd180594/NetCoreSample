@@ -21,10 +21,6 @@ namespace Belatrix.Final.WebApi
         {
             services.AddControllers()
                 .AddNewtonsoftJson();
-
-            //services.AddDbContext<Mysql.BelatrixFinalDbContext>(options =>
-            //options.UseMySql(Configuration.GetConnectionString("mysql")));
-
             services.AddSwashbuckle();
             services.AddDependencies(Configuration.GetConnectionString("postgresql"));
         }

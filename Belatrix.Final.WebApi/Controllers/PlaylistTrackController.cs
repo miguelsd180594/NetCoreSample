@@ -8,23 +8,23 @@ namespace Belatrix.Final.WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AlbumController : ControllerBase
+    public class PlaylistTrackController : ControllerBase
     {
-        private readonly IRepository<Album> _repository;
-        public AlbumController(IRepository<Album> repository)
+        private readonly IRepository<PlaylistTrack> _repository;
+        public PlaylistTrackController(IRepository<PlaylistTrack> repository)
         {
             _repository = repository;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Album>>> GetAlbums()
+        public async Task<ActionResult<IEnumerable<PlaylistTrack>>> GetPlaylistTracks()
         {
             var list = await _repository.Read();
             return Ok(list);
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Album> GetAlbum(int id)
+        public ActionResult<PlaylistTrack> GetPlaylistTrack(int id)
         {
             var entity = _repository.GetById(id);
             if (entity == null) return NotFound();
@@ -32,23 +32,14 @@ namespace Belatrix.Final.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Album>> PostAlbum([FromBody]Album request)
+        public async Task<ActionResult<PlaylistTrack>> PostPlaylistTrack([FromBody]PlaylistTrack request)
         {
             await _repository.Create(request);
-            return Ok(request.Id);
-        }
-
-        [HttpPut]
-        public async Task<ActionResult<bool>> PutAlbum([FromBody]Album request)
-        {
-            var entity = _repository.GetById(request.Id);
-            if (entity == null) return NotFound();
-            var response = await _repository.Update(request);
-            return Ok(response);
+            return Ok();
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<bool>> DeleteAlbum(int id)
+        public async Task<ActionResult<bool>> DeletePlaylistTrack(int id)
         {
             var entity = _repository.GetById(id);
             if (entity == null) return NotFound();
