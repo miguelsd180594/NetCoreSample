@@ -9,7 +9,7 @@ namespace Belatrix.Final.WebApi.Models
         public Employee()
         {
             Customers = new HashSet<Customer>();
-            EmployeesReportsTo = new HashSet<Employee>();
+            InChargeOf = new HashSet<Employee>();
         }
         [Key]
         public int EmployeeId { get; set; }
@@ -17,6 +17,7 @@ namespace Belatrix.Final.WebApi.Models
         public string FirstName { get; set; }
         public string Title { get; set; }
         public Employee ReportsTo { get; set; }
+        public int ReportsToId { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime HireDate { get; set; }
         public string Address { get; set; }
@@ -28,7 +29,7 @@ namespace Belatrix.Final.WebApi.Models
         public string Fax { get; set; }
         public string Email { get; set; }
         public ICollection<Customer> Customers { get; set; }
-        public ICollection<Employee> EmployeesReportsTo { get; set; }
+        public ICollection<Employee> InChargeOf { get; set; }
     }
 
 }

@@ -22,7 +22,8 @@ namespace Belatrix.Final.WebApi.Models
         public string Phone { get; set; }
         public string Fax { get; set; }
         public string Email { get; set; }
-        public Employee SupportRepId { get; set; }
+        public int SupportRepId { get; set; }
+        public Employee SupportRep { get; set; }
         public ICollection<Invoice> Invoices { get; set; }
     }
 }
