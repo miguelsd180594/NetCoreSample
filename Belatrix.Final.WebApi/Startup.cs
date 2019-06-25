@@ -4,7 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Belatrix.Final.WebApi.Extensions;
+using Microsoft.AspNetCore.Mvc;
+using Belatrix.Final.WebApi;
 
+[assembly: ApiConventionType(typeof(BelatrixFinalApiConventions))]
 namespace Belatrix.Final.WebApi
 {
     public class Startup
