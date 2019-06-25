@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -12,12 +12,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.0.0-preview5" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Belatrix.Final.WebApi.Repository.MySql\Belatrix.Final.WebApi.Repository.MySql.csproj" />
     <ProjectReference Include="..\Belatrix.Final.WebApi.Repository.PostgreSql\Belatrix.Final.WebApi.Repository.PostgreSql.csproj" />
   </ItemGroup>
 

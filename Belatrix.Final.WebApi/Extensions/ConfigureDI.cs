@@ -3,7 +3,6 @@ using Belatrix.Final.WebApi.Repository;
 using Belatrix.Final.WebApi.Repository.PostgreSql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Mysql = Belatrix.Final.WebApi.Repository.MySql;
 using PostgreSql = Belatrix.Final.WebApi.Repository.PostgreSql;
 
 namespace Belatrix.Final.WebApi.Extensions
