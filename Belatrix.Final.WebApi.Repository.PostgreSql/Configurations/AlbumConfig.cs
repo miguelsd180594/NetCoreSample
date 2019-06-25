@@ -1,4 +1,5 @@
 ﻿using Belatrix.Final.WebApi.Models;
+using Belatrix.Final.WebApi.Repository.PostgreSql.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,14 +19,14 @@ namespace Belatrix.Final.WebApi.Repository.PostgreSql.Configurations
                 .IsRequired();
 
             builder.Property(e => e.Title)
-                .HasColumnName("title")
+                .HasColumnName("Title".ToLowerWithUnderdash())
                 .HasMaxLength(160);
 
             builder.HasIndex(e => e.ArtistId)
                 .HasName("album_artist_idx");
 
             builder.Property(e => e.ArtistId)
-                .HasColumnName("artist_id");
+                .HasColumnName("ArtistId".ToLowerWithUnderdash());
 
             builder.HasOne(d => d.Artist)
                 .WithMany(p => p.Albums)

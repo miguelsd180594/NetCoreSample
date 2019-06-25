@@ -1,4 +1,5 @@
-﻿using Belatrix.Final.WebApi.Models;
+﻿using Belatrix.Final.WebApi.Filters;
+using Belatrix.Final.WebApi.Models;
 using Belatrix.Final.WebApi.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Belatrix.Final.WebApi.Controllers
         }
 
         [HttpGet]
+        [ArtistResultFilter]
         public async Task<ActionResult<IEnumerable<Artist>>> GetArtists()
         {
             var list = await _repository.Read();

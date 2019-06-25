@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Belatrix.Final.WebApi.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Belatrix.Final.WebApi;
+using AutoMapper;
+using Belatrix.Final.WebApi.Profiles;
 
 [assembly: ApiConventionType(typeof(BelatrixFinalApiConventions))]
 namespace Belatrix.Final.WebApi
@@ -22,6 +24,7 @@ namespace Belatrix.Final.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapperConfig();
             services.AddControllers()
                 .AddNewtonsoftJson();
             services.AddSwashbuckle();
