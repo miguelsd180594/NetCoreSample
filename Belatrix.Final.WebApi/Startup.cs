@@ -1,5 +1,5 @@
 using Mysql = Belatrix.Final.WebApi.Repository.MySql;
-using PostgreSql = Belatrix.Final.WebApi.RepositoryPostgreSql;
+using PostgreSql = Belatrix.Final.WebApi.Repository.PostgreSql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +24,7 @@ namespace Belatrix.Final.WebApi
             services.AddControllers()
                 .AddNewtonsoftJson();
 
-            //services.AddDbContext<BelatrixFinalDbContext>(options =>
+            //services.AddDbContext<Mysql.BelatrixFinalDbContext>(options =>
             //options.UseMySql(Configuration.GetConnectionString("mysql")));
 
             services.AddEntityFrameworkNpgsql()
