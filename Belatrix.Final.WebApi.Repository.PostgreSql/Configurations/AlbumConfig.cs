@@ -30,7 +30,7 @@ namespace Belatrix.Final.WebApi.Repository.PostgreSql.Configurations
             builder.HasOne(d => d.Artist)
                 .WithMany(p => p.Albums)
                 .HasForeignKey(d => d.ArtistId)
-                .HasConstraintName("album__reference_artist__idx");
+                .HasConstraintName("album__reference_artist_id__fkey");
         }
     }
 }

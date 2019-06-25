@@ -70,7 +70,7 @@ namespace Belatrix.Final.WebApi.Repository.PostgreSql.Configurations
 
             builder.HasOne(x => x.SupportRep)
                 .WithMany(x => x.Customers)
-                .HasForeignKey(x => x.SupportRep)
+                .HasForeignKey(x => x.SupportRepId)
                 .HasConstraintName("customer__reference_employee__fkey");
         }
     }
