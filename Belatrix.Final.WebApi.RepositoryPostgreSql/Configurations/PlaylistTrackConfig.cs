@@ -1,36 +1,35 @@
 ﻿using Belatrix.Final.WebApi.Models;
+using Belatrix.Final.WebApi.Repository.PostgreSql.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Belatrix.Final.WebApi.RepositoryPostgreSql.Configurations
+namespace Belatrix.Final.WebApi.Repository.PostgreSql.Configurations
 {
     internal class PlaylistTrackConfig : IEntityTypeConfiguration<PlaylistTrack>
     {
         public void Configure(EntityTypeBuilder<PlaylistTrack> builder)
         {
             builder.ToTable("playlist_track")
-                .HasKey(c => new { c.PlaylistId, c.TrackId })
+                .HasKey(x => new { x.PlaylistId, x.TrackId })
                 .HasName("playlist_track_id_pkey");
 
-            builder.Property(e => e.AlbumId)
-                .HasColumnName("id")
-                .UseNpgsqlIdentityColumn()
+            builder.Property(x => x.PlaylistId)
+                .HasColumnName("PlaylistId".ToLowerWithUnderdash())
                 .IsRequired();
 
-            builder.Property(e => e.Title)
-                .HasColumnName("title")
-                .HasMaxLength(160);
+            builder.Property(x => x.TrackId)
+                .HasColumnName("TrackId".ToLowerWithUnderdash())
+                .IsRequired();
 
-            builder.HasIndex(e => e.ArtistId)
-                .HasName("album_artist_idx");
+            builder.HasOne(x => x.PlayList)
+                .WithMany(x => x.PlaylistTracks)
+                .HasForeignKey(x => x.PlaylistId)
+                .HasConstraintName("playlist_track__reference_playlist__fkey");
 
-            builder.Property(e => e.ArtistId)
-                .HasColumnName("artist_id");
-
-            builder.HasOne(d => d.Artist)
-                .WithMany(p => p.Albums)
-                .HasForeignKey(d => d.ArtistId)
-                .HasConstraintName("album__reference_artist__idx");
+            builder.HasOne(x => x.Track)
+                .WithMany(x => x.PlaylistTracks)
+                .HasForeignKey(x => x.TrackId)
+                .HasConstraintName("playlist_track__reference_track__fkey");
         }
     }
 }

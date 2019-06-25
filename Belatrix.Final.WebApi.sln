@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belatrix.Final.WebApi.Repos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belatrix.Final.WebApi.Repository.MySql", "Belatrix.Final.WebApi.Repository.MySql\Belatrix.Final.WebApi.Repository.MySql.csproj", "{DA9B4D35-A608-4A12-8355-C415FEB1F53C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belatrix.Final.WebApi.RepositoryPostgreSql", "Belatrix.Final.WebApi.RepositoryPostgreSql\Belatrix.Final.WebApi.RepositoryPostgreSql.csproj", "{5CE9E5DB-04A0-46DA-98E9-1179918DB8F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belatrix.Final.WebApi.Repository.PostgreSql", "Belatrix.Final.WebApi.RepositoryPostgreSql\Belatrix.Final.WebApi.Repository.PostgreSql.csproj", "{5CE9E5DB-04A0-46DA-98E9-1179918DB8F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

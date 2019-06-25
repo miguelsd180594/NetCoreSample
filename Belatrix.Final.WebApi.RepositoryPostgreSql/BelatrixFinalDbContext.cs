@@ -1,9 +1,6 @@
 ﻿using Belatrix.Final.WebApi.Models;
-using Belatrix.Final.WebApi.RepositoryPostgreSql.Configurations;
+using Belatrix.Final.WebApi.Repository.PostgreSql.Configurations;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Belatrix.Final.WebApi.RepositoryPostgreSql
 {
@@ -27,6 +24,7 @@ namespace Belatrix.Final.WebApi.RepositoryPostgreSql
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AlbumConfig());
+            modelBuilder.ApplyConfiguration(new PlaylistTrackConfig());
         }
     }
 }

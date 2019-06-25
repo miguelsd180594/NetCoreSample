@@ -1,4 +1,5 @@
-using Belatrix.Final.WebApi.Repository.MySql;
+using Mysql = Belatrix.Final.WebApi.Repository.MySql;
+using PostgreSql = Belatrix.Final.WebApi.RepositoryPostgreSql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +28,7 @@ namespace Belatrix.Final.WebApi
             //options.UseMySql(Configuration.GetConnectionString("mysql")));
 
             services.AddEntityFrameworkNpgsql()
-                .AddDbContext<BelatrixFinalDbContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("postgresql"), x => x.MigrationsAssembly("Belatrix.Final.WebApi")))
+                .AddDbContext<PostgreSql.BelatrixFinalDbContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("postgresql"), x => x.MigrationsAssembly("Belatrix.Final.WebApi")))
                 .BuildServiceProvider();
         }
 

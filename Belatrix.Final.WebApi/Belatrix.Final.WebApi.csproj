@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Belatrix.Final.WebApi.Repository.MySql\Belatrix.Final.WebApi.Repository.MySql.csproj" />
+    <ProjectReference Include="..\Belatrix.Final.WebApi.RepositoryPostgreSql\Belatrix.Final.WebApi.Repository.PostgreSql.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Belatrix.Final.WebApi.RepositoryPostgreSql.Configurations
+namespace Belatrix.Final.WebApi.Repository.PostgreSql.Configurations
 {
     internal class AlbumConfig : IEntityTypeConfiguration<Album>
     {
